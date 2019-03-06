@@ -54,7 +54,8 @@ F2F_bridge = function(input,row, plot = TRUE){
 }
 ##########################################################################################################
 
-#step 3: Use F2F-Bridge on inputted and prepared data frame
+#step 3: Use F2F-Bridge on inputted and prepared data frame, this will generate a plot for each test sequence, saved 
+#in the directory specified by "path."
 protein_stats = c()
 for (protein in (4:nrow(input))){
   protein_stats = c(protein_stats,(F2F_bridge(input, protein)))
@@ -66,7 +67,7 @@ for (protein in (4:nrow(input))){
 
 #####################################################################################################
   
-#step 4: Extract the scores of the test sequences
+#step 4: Extract the scores of the test sequences, this will save a dataframe of the scores to the directory specified by "path"
 Optimal_Protein = function(output){
 df <- data.frame(matrix(unlist(output), nrow = length(4:nrow(input)), byrow=T))
 rownames(df) = Title[4:nrow(input)]
